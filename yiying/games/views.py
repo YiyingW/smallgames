@@ -11,4 +11,4 @@ def detail(request, game_id):
     elif game_id == '1':
         return render(request, 'games/game_1.html', {})
     else:
-        return HttpResponse("No such game yet")
+        return render(request, 'games/developing.html', {})
