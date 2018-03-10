@@ -17,3 +17,28 @@ class IndexTests(TestCase):
     def test_index_url_resolves_home_view(self):
         view = resolve('/')
         self.assertEquals(view.func, index)
+
+
+class DetailTests(TestCase):
+
+    def test_detail_game0_status_code(self):
+        url = reverse('detail', args=['0'])
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+
+    def test_detail_game1_status_code(self):
+        url = reverse('detail', args=['1'])
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+
+    def test_detail_url_resolves_game0_view(self):
+        view = resolve('/0/')
+        self.assertEquals(view.func, detail)
+
+    def test_detail_url_resolves_game1_view(self):
+        view = resolve('/1/')
+        self.assertEquals(view.func, detail)
+
+    def test_detail_url_resolves_game2_view(self):
+        view = resolve('/2/')
+        self.assertEquals(view.func, detail)

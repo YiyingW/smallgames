@@ -1,13 +1,9 @@
 function Row(props) {
-  var style = {
-    height: 25,
-    width: 50,
-    border: "1px solid black",
-    backgroundColor: "yellow"
-  }
   return (
-    <div style = {style} onClick = {()=>props.handleClick(props.row_id)}>
-      {props.option}
+    <div>
+      <button className="button" onClick = {()=>props.handleClick(props.row_id)}>
+        {props.option}
+      </button>
     </div>
   )
 }
@@ -109,11 +105,11 @@ class Game extends React.Component{
     
     return (
       <div>
-        <h1>Question: {this.state.question} ?</h1>
+        <h2>Question: {this.state.question} ?</h2>
         <Board options = {this.state.options} handleClick = {this.handleClick}/>
-        <h1> Correct: {this.state.c_count} </h1>
-        <h1> Incorrect: {this.state.i_count} </h1>
-        <button onClick = {()=> this.restart()}>Restart</button>
+        <h2 style={{color:"green"}}> Correct: {this.state.c_count} </h2>
+        <h2 style={{color:"red"}}> Incorrect: {this.state.i_count} </h2>
+        <button className = "restart_button" onClick = {()=> this.restart()}>Restart</button>
       </div>
     )
   }
