@@ -105,10 +105,12 @@ class Game extends React.Component{
     
     return (
       <div>
-        <h2>Question: {this.state.question} ?</h2>
+        <h2 style={{color:"yellow"}}>Question: {this.state.question} ?</h2>
         <Board options = {this.state.options} handleClick = {this.handleClick}/>
-        <h2 style={{color:"green"}}> Correct: {this.state.c_count} </h2>
-        <h2 style={{color:"red"}}> Incorrect: {this.state.i_count} </h2>
+        <div className="highlight">
+          <h2 style={{color:"green"}}> Correct: {this.state.c_count} </h2>
+          <h2 style={{color:"red"}}> Incorrect: {this.state.i_count} </h2>
+        </div>
         <button className = "restart_button" onClick = {()=> this.restart()}>Restart</button>
       </div>
     )
